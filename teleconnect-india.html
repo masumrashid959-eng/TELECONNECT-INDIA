@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teleconnect India — Work From Home, Earn Every Week</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f172a; --navy2:#16213e; --ink:#1e2734; --slate:#5b6577;
+  --emerald:#0e9f6e; --emerald-d:#087856; --amber:#f0b429;
+  --paper:#ffffff; --mist:#f4f6f9; --line:#e6e9ef;
+  --r-lg:20px; --r-md:14px; --r-sm:10px;
+  --shadow:0 10px 30px -12px rgba(15,23,42,.18);
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  box-sizing:border-box;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth; scroll-padding-top:76px;}
+body{font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper); line-height:1.55; -webkit-font-smoothing:antialiased;}
+h1,h2,h3,.brand{font-family:'Plus Jakarta Sans',sans-serif;}
+img,svg{max-width:100%; display:block;}
+a{text-decoration:none; color:inherit;}
+.wrap{max-width:1160px; margin:0 auto; padding:0 28px;}
+section{padding:96px 0;}
+@media(max-width:720px){section{padding:64px 0;}}
+
+/* Header */
+header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); padding-top:env(safe-area-inset-top,0px);}
+.navbar{display:flex; align-items:center; justify-content:space-between; padding:18px 28px; max-width:1160px; margin:0 auto;}
+.brand{font-weight:800; font-size:1.28rem; color:var(--navy); letter-spacing:-.02em;}
+.brand span{color:var(--emerald);}
+nav ul{display:flex; gap:34px; list-style:none;}
+nav a{font-weight:500; font-size:.95rem; color:var(--slate); transition:color .2s;}
+nav a:hover{color:var(--navy);}
+.nav-cta{background:var(--navy); color:#fff !important; padding:10px 20px; border-radius:999px; font-weight:600; font-size:.9rem;}
+.burger{display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer;}
+.burger span{width:24px; height:2px; background:var(--navy);}
+@media(max-width:860px){
+  nav ul{display:none;}
+  .nav-cta{display:none;}
+  .burger{display:flex;}
+}
+
+/* Hero */
+.hero{padding:76px 0 60px; background:linear-gradient(180deg,var(--mist) 0%, #fff 100%);}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+.eyebrow{color:var(--emerald-d); font-weight:600; font-size:.92rem; margin-bottom:14px;}
+.hero h1{font-size:clamp(2.1rem,4.4vw,3.4rem); font-weight:800; letter-spacing:-.02em; color:var(--navy); line-height:1.08; margin-bottom:20px;}
+.hero p.desc{font-size:1.06rem; color:var(--slate); max-width:520px; margin-bottom:30px;}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:999px; font-weight:600; font-size:.98rem; transition:transform .15s, box-shadow .15s;}
+.btn-primary{background:var(--emerald); color:#fff; box-shadow:0 8px 20px -6px rgba(14,159,110,.5);}
+.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{background:#fff; color:var(--navy); border:1.5px solid var(--line);}
+.btn-ghost:hover{border-color:var(--navy);}
+.badges{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+@media(max-width:600px){.badges{grid-template-columns:1fr 1fr;}}
+.badge{background:#fff; border:1px solid var(--line); border-radius:var(--r-md); padding:14px 12px; text-align:center; box-shadow:var(--shadow);}
+.badge b{display:block; font-size:1.25rem; color:var(--navy); font-weight:800;}
+.badge span{font-size:.78rem; color:var(--slate);}
+
+/* Hero visual */
+.hero-visual{position:relative; background:var(--navy); border-radius:28px; padding:34px; overflow:hidden;}
+.hero-visual::before{content:''; position:absolute; inset:0; background:radial-gradient(circle at 75% 15%, rgba(14,159,110,.35), transparent 55%);}
+.hero-visual svg{position:relative;}
+.float-card{position:absolute; background:#fff; border-radius:14px; padding:12px 16px; box-shadow:0 14px 30px -10px rgba(0,0,0,.35); display:flex; align-items:center; gap:10px;}
+.float-card .dot{width:9px; height:9px; border-radius:50%; background:var(--emerald);}
+.float-card b{font-size:.86rem; color:var(--navy);}
+.fc1{top:26px; left:26px;}
+.fc2{bottom:28px; right:26px;}
+
+/* Section heading */
+.sec-head{max-width:620px; margin-bottom:52px;}
+.sec-head h2{font-size:clamp(1.6rem,3vw,2.2rem); color:var(--navy); font-weight:800; letter-spacing:-.01em; margin-bottom:12px;}
+.sec-head p{color:var(--slate); font-size:1.02rem;}
+.centered{margin-left:auto; margin-right:auto; text-align:center;}
+
+/* About cards */
+.about{background:var(--mist);}
+.card-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+@media(max-width:900px){.card-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.card-grid{grid-template-columns:1fr;}}
+.feature-card{background:#fff; border-radius:var(--r-lg); padding:28px 24px; box-shadow:var(--shadow); border:1px solid var(--line);}
+.icon-badge{width:44px; height:44px; border-radius:12px; background:rgba(14,159,110,.12); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+.feature-card h3{font-size:1.06rem; color:var(--navy); margin-bottom:8px; font-weight:700;}
+.feature-card p{font-size:.92rem; color:var(--slate);}
+
+/* About Us */
+.about-hero{background:var(--navy); color:#fff; padding:90px 0 76px; text-align:center;}
+.about-hero .eyebrow{color:#6ee7b7; display:flex; justify-content:center;}
+.about-hero h1{font-size:clamp(1.8rem,3.6vw,2.5rem); font-weight:800; letter-spacing:-.01em; line-height:1.16; max-width:760px; margin:0 auto 18px;}
+.about-hero p{color:rgba(255,255,255,.68); max-width:600px; margin:0 auto; font-size:1.02rem;}
+
+.mission{background:#fff;}
+.mission-text{max-width:620px; color:var(--slate); font-size:1.02rem; margin-bottom:40px;}
+.leader-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:660px;}
+@media(max-width:600px){.leader-grid{grid-template-columns:1fr;}}
+.leader-card{background:var(--mist); border:1px solid var(--line); border-radius:var(--r-lg); padding:24px 22px; display:flex; align-items:center; gap:16px; box-shadow:var(--shadow);}
+.leader-avatar{width:50px; height:50px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.95rem; flex:none;}
+.leader-card h3{font-size:.98rem; color:var(--navy); font-weight:700;}
+.leader-card span{font-size:.82rem; color:var(--slate);}
+
+.values-about{background:var(--mist);}
+
+/* Roles */
+.roles-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:60px;}
+@media(max-width:900px){.roles-grid{grid-template-columns:1fr; gap:44px;}}
+.task-list{list-style:none; display:flex; flex-direction:column; gap:14px;}
+.task-list li{display:flex; gap:16px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:var(--r-md); padding:16px 18px;}
+.task-num{flex:none; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; font-size:.82rem; font-weight:700; display:flex; align-items:center; justify-content:center;}
+.task-list li span{font-size:.97rem; color:var(--ink); padding-top:4px;}
+.audience-box{background:var(--navy); border-radius:var(--r-lg); padding:32px 28px; color:#fff;}
+.audience-box h3{font-size:1.2rem; margin-bottom:20px; font-weight:700;}
+.aud-list{list-style:none; display:flex; flex-direction:column; gap:12px;}
+.aud-list li{display:flex; align-items:center; gap:12px; background:rgba(255,255,255,.07); border-radius:var(--r-sm); padding:13px 16px; font-size:.95rem;}
+.aud-list li .dot{width:8px; height:8px; border-radius:50%; background:var(--emerald); flex:none;}
+
+/* Process */
+.process{background:var(--mist);}
+.timeline{display:flex; gap:0; position:relative;}
+@media(max-width:900px){.timeline{flex-direction:column; gap:18px;}}
+.tl-step{flex:1; position:relative; padding:0 16px;}
+.tl-step:first-child{padding-left:0;}
+.tl-step:last-child{padding-right:0;}
+.tl-num{width:38px; height:38px; border-radius:50%; background:#fff; border:2px solid var(--emerald); color:var(--emerald-d); font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:16px; position:relative; z-index:2;}
+.tl-step::after{content:''; position:absolute; top:19px; left:50%; width:100%; height:2px; background:var(--line); z-index:1;}
+.tl-step:last-child::after{display:none;}
+@media(max-width:900px){.tl-step::after{display:none;}}
+.tl-step h3{font-size:1rem; color:var(--navy); margin-bottom:8px; font-weight:700;}
+.tl-step p{font-size:.88rem; color:var(--slate);}
+.tl-step.growth{background:linear-gradient(135deg,var(--emerald),var(--emerald-d)); border-radius:var(--r-md); padding:18px 16px; color:#fff;}
+.tl-step.growth h3{color:#fff;}
+.tl-step.growth p{color:rgba(255,255,255,.85);}
+.tl-step.growth .tl-num{background:#fff; border-color:#fff;}
+
+/* FAQ */
+.faq-list{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:12px;}
+.faq-item{border:1px solid var(--line); border-radius:var(--r-md); background:#fff; overflow:hidden;}
+.faq-item summary{cursor:pointer; list-style:none; padding:18px 22px; font-weight:600; color:var(--navy); display:flex; justify-content:space-between; align-items:center; gap:16px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+'; font-size:1.3rem; color:var(--emerald); transition:transform .2s; flex:none;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{padding:0 22px 20px; color:var(--slate); font-size:.95rem;}
+
+/* Footer */
+footer{background:var(--navy); color:#fff; padding-top:80px;}
+.foot-cta{text-align:center; max-width:640px; margin:0 auto 60px;}
+.foot-cta h2{font-size:clamp(1.6rem,3.4vw,2.3rem); font-weight:800; margin-bottom:18px;}
+.foot-cta .pill{display:inline-flex; align-items:center; gap:8px; background:rgba(14,159,110,.18); border:1px solid rgba(14,159,110,.5); color:#6ee7b7; padding:9px 18px; border-radius:999px; font-size:.86rem; font-weight:600; margin-bottom:22px;}
+.foot-cta a.btn-primary{margin-top:6px;}
+.foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; border-top:1px solid rgba(255,255,255,.1); padding:48px 0;}
+@media(max-width:720px){.foot-grid{grid-template-columns:1fr; gap:32px;}}
+.foot-grid h4{font-size:.95rem; margin-bottom:16px; color:#fff;}
+.foot-grid p, .foot-grid a{color:rgba(255,255,255,.65); font-size:.9rem;}
+.foot-grid ul{list-style:none; display:flex; flex-direction:column; gap:10px;}
+.foot-grid ul a:hover{color:#fff;}
+.foot-bottom{text-align:center; padding:22px 0; border-top:1px solid rgba(255,255,255,.08); color:rgba(255,255,255,.45); font-size:.82rem;}
+
+@media (prefers-reduced-motion: reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#home" class="brand">Teleconnect <span>India</span></a>
+    <nav><ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About us</a></li>
+      <li><a href="#jobs">Job details</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#faqs">FAQs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a href="#jobs" class="nav-cta">Apply now</a>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">WELCOME TO TELECONNECT INDIA</div>
+      <h1>Work From Home, Earn Every Week.</h1>
+      <p class="desc">Telehire India hires work-from-home telecallers for Demat account opening — assigned leads, practical training, a company dashboard, and Team Leader guidance at every step.</p>
+      <div class="cta-row">
+        <a href="#jobs" class="btn btn-primary">Explore Opportunity →</a>
+        <a href="#about" class="btn btn-ghost">About us →</a>
+      </div>
+      <div class="badges">
+        <div class="badge"><b>500+</b><span>Telecallers</span></div>
+        <div class="badge"><b>₹7,500</b><span>Full-time Weekly</span></div>
+        <div class="badge"><b>3–6 hrs</b><span>Daily working hours</span></div>
+        <div class="badge"><b>₹49</b><span>Joining charge</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 380 420" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="190" cy="200" r="150" fill="rgba(255,255,255,.05)"/>
+        <rect x="70" y="230" width="240" height="130" rx="16" fill="#1e2a45"/>
+        <rect x="90" y="248" width="200" height="94" rx="8" fill="#0e9f6e" opacity=".18"/>
+        <circle cx="190" cy="140" r="58" fill="#f2c9a0"/>
+        <path d="M132 140a58 58 0 0 1 116 0v10h-20l-8-22-8 14-64 2-8-14-8 22z" fill="#2b2320"/>
+        <rect x="150" y="185" width="80" height="90" rx="18" fill="#0e9f6e"/>
+        <path d="M118 128c0-30 24-52 72-52s56 24 56 48" stroke="#f0b429" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <circle cx="122" cy="150" r="9" fill="#f0b429"/>
+        <circle cx="258" cy="150" r="9" fill="#f0b429"/>
+        <rect x="176" y="150" width="10" height="26" rx="5" fill="#f0b429"/>
+      </svg>
+      <div class="float-card fc1"><span class="dot"></span><b>Lead assigned</b></div>
+      <div class="float-card fc2"><span class="dot"></span><b>Weekly payout ready</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="about-hero" id="about">
+  <div class="wrap">
+    <div class="eyebrow">ABOUT US</div>
+    <h1>Telehire India helps candidates start guided telecalling work from home.</h1>
+    <p>A hiring team focused on structured remote work. To make remote telecalling simple and transparent for candidates across India, with structured onboarding and clear guidance at every stage.</p>
+  </div>
+</section>
+
+<section class="mission">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Our mission</h2>
+    </div>
+    <p class="mission-text">Teleconnect India aims to provide transparent remote telecalling opportunities. We connect candidates with structured training, clear processes, and reliable guidance.</p>
+    <div class="leader-grid">
+      <div class="leader-card">
+        <div class="leader-avatar">A</div>
+        <div><h3>Aryan</h3><span>Manager &amp; Leader</span></div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-avatar">MR</div>
+        <div><h3>Masum Rashid</h3><span>CEO &amp; Founder</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-about">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How we work with candidates</h2>
+      <p>Every part of this process is designed to help candidates understand their role clearly.</p>
+    </div>
+    <div class="card-grid">
+      <div class="feature-card">
+        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e9f6e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>Clarity first</h3>
+        <p>Clear responsibilities, working hours, and payout process explained before you start.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e9f6e" stroke-width="2"><path d="M12 3v18M8 7h6.5a2.5 2.5 0 010 5H8h6.5a2.5 2.5 0 010 5H8"/></svg></div>
+        <h3>₹49 candidate charges</h3>
+        <p>No training fee, security deposit, or hidden costs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e9f6e" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg></div>
+        <h3>Transparent tracking</h3>
+        <p>Attendance and leads visibility in one place.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e9f6e" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <h3>Human support</h3>
+        <p>Team Leader guidance and query resolution during working hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="jobs">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What a telecaller actually does</h2>
+      <p>A clear day-to-day, from your first call to your first payout.</p>
+    </div>
+    <div class="roles-grid">
+      <ul class="task-list">
+        <li><span class="task-num">1</span><span>Guided telecalling using fixed scripts, with Team Leader support throughout the call.</span></li>
+        <li><span class="task-num">2</span><span>Company dashboard where your attendance and lead status stay visible.</span></li>
+        <li><span class="task-num">3</span><span>One-time joining charge of ₹49 — nothing further is deducted.</span></li>
+        <li><span class="task-num">4</span><span>Practical training before you take your first live call.</span></li>
+        <li><span class="task-num">5</span><span>Flexible shifts to fit around study, family, or another job.</span></li>
+        <li><span class="task-num">6</span><span>Weekly payout cycle, so earnings don't wait till month-end.</span></li>
+      </ul>
+      <div class="audience-box">
+        <h3>An opportunity designed for everyone</h3>
+        <ul class="aud-list">
+          <li><span class="dot"></span>Freshers / Students</li>
+          <li><span class="dot"></span>Job seekers</li>
+          <li><span class="dot"></span>Working professionals / Freelancers</li>
+          <li><span class="dot"></span>Homemakers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="training">
+  <div class="wrap">
+    <div class="sec-head centered">
+      <h2>From first call to team leadership</h2>
+      <p>A five-step path, the same for every telecaller who joins.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-step"><div class="tl-num">1</div><h3>Screening call</h3><p>A short call to understand your availability and fit.</p></div>
+      <div class="tl-step"><div class="tl-num">2</div><h3>Application &amp; connect</h3><p>Complete your application and connect with your Team Leader.</p></div>
+      <div class="tl-step"><div class="tl-num">3</div><h3>Training &amp; guidance</h3><p>Practical training on scripts, dashboard, and lead handling.</p></div>
+      <div class="tl-step"><div class="tl-num">4</div><h3>Start verified work</h3><p>Begin guided telecalling with assigned leads and support.</p></div>
+      <div class="tl-step growth"><div class="tl-num">5</div><h3>Growth into leadership</h3><p>Move up to Team Leader or Manager as you prove consistency.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faqs">
+  <div class="wrap">
+    <div class="sec-head centered">
+      <h2>Frequently asked questions</h2>
+      <p>Straight answers about targets, hours, and how you get paid.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Do I have to meet a sales target?</summary>
+        <p>No. There's no target-based pressure — your job is to make guided calls on assigned leads. Consistency and call quality matter more than hitting a number.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What are the working hours?</summary>
+        <p>Part-time is 3–4 hours a day, full-time is 5–6 hours a day. Shifts are flexible and Sundays are off.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How and when do I get paid?</summary>
+        <p>Payouts run on a weekly cycle. Full-time telecallers can earn up to ₹7,500 a week, tracked through the company dashboard.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the ₹49 joining charge refundable, and are there other charges later?</summary>
+        <p>The ₹49 is a one-time joining charge to activate your account. There are no hidden or recurring charges after that.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need prior telecalling experience?</summary>
+        <p>No. Freshers, students, and homemakers join regularly — practical training and fixed scripts get you ready before your first live call.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-cta">
+      <div class="pill">No target · No hidden charges</div>
+      <h2>Be a part of something big with Telehire India.</h2>
+      <a href="mailto:teleconnectindia456@gmail.com" class="btn btn-primary">Get in touch →</a>
+    </div>
+    <div class="foot-grid">
+      <div>
+        <a href="#home" class="brand" style="color:#fff; font-size:1.15rem;">Teleconnect <span style="color:#6ee7b7;">India</span></a>
+        <p style="margin-top:12px; max-width:280px;">A structured, work-from-home telecalling opportunity with real training and weekly payouts.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#jobs">Job details</a></li>
+          <li><a href="#training">Training</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:teleconnectindia456@gmail.com">teleconnectindia456@gmail.com</a></li>
+          <li><a href="tel:+916003147018">+91 60031 47018</a></li>
+          <li><a href="tel:+919391986870">+91 93919 86870</a></li>
+          <li>Mon–Sat, guided support hours</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Teleconnect India. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.querySelector('.burger').addEventListener('click', function(){
+  var nav = document.querySelector('nav ul');
+  var open = nav.style.display === 'flex';
+  nav.style.cssText = open ? '' : 'display:flex; flex-direction:column; gap:14px; position:absolute; top:100%; left:0; right:0; background:#fff; padding:20px 28px; border-bottom:1px solid #e6e9ef;';
+});
+</script>
+</body>
+</html>
